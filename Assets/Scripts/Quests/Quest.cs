@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +8,12 @@ using UnityEngine.UI;
 public class Quest : ScriptableObject
 {
     [Header("Input")]
-    public List<string> DialogueText;
+    public Dialogue dialogue;
     public GameObject QuestItem;
 
-    //Flags
-    [Space, Header("Flags")]
-    public bool IsCompleted;
-    public bool HasTalked;
-    public bool HasFoundItem;
+    [Header("Flags")]
+    [HideInInspector] public bool HasPlaced;
+    [HideInInspector] public bool HasTalked;
+    [HideInInspector] public bool HasFoundItem;
+    public bool IsCompleted => HasPlaced && HasTalked && HasPlaced;
 }
