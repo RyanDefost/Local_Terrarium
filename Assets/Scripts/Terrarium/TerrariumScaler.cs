@@ -30,7 +30,7 @@ public class TerrariumScaler : MonoBehaviour
 
     public void UpdateScaler()
     {
-        if (_currentObject == null) return;
+        if (_manager.CurrentObject == null) return;
 
         SetScaledPosition();
     }
@@ -38,7 +38,7 @@ public class TerrariumScaler : MonoBehaviour
     private void SetScaledPosition()
     {
         _copiedObject.transform.SetParent(_scaledParent.transform);
-        _copiedObject.transform.localPosition = _currentObject.transform.localPosition;
+        _copiedObject.transform.localPosition = _manager.CurrentObject.transform.localPosition;
     }
 
     private void SetRelease()
@@ -48,7 +48,7 @@ public class TerrariumScaler : MonoBehaviour
 
     private void SetPickup()
     {
-        _copiedObject = Instantiate(_manager.CurrentObject, Vector3.zero, _manager.CurrentObject.transform.rotation);
+        _copiedObject = Instantiate(_manager.CurrentObject, new Vector2(0, -100), _manager.CurrentObject.transform.rotation);
         _copiedObject.transform.localScale = _manager.CurrentObject.transform.lossyScale * _scaleFactor;
     }
 }

@@ -2,13 +2,20 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(TerrariumMover))]
+[RequireComponent(typeof(TerrariumMover), typeof(TerrariumScaler))]
 public class TerrariumManager : MonoBehaviour
 {
+    [Header("Input")]
     public GameObject CurrentObject;
+    public GameObject OtherObject;
+    public bool isActive = false;
 
     public Action OnPickup;
     public Action Onrelease;
+
+
+    [Header("Settings")]
+    public LayerMask PropMask;
 
     private TerrariumMover _terrariumMover;
     private TerrariumScaler _terrariumScaler;
@@ -21,7 +28,7 @@ public class TerrariumManager : MonoBehaviour
         _terrariumMover.Init(this);
         _terrariumScaler.Init(this);
 
-        OnPickup?.Invoke(); //TEMP, THERE ISNT ANY OUTSIDE CALLS YET.
+        SetPickup(CurrentObject); //TEMP, THERE ISNT ANY OUTSIDE CALLS YET.
     }
 
     private void OnDisable()
@@ -30,12 +37,13 @@ public class TerrariumManager : MonoBehaviour
         _terrariumScaler = null;
     }
 
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (!isActive) return;
+
+        if (Input.GetKeyDown(KeyCode.F)) //TEMP
         {
-            SetPickup(CurrentObject);
+            SetPickup(OtherObject);
         }
 
         _terrariumMover.UpdateMover();
@@ -47,7 +55,7 @@ public class TerrariumManager : MonoBehaviour
         Onrelease?.Invoke();
         CurrentObject = null;
     }
-    //Test
+
     public void SetPickup(GameObject pickup)
     {
         CurrentObject = pickup;
