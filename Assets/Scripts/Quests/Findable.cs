@@ -9,15 +9,20 @@ public class Findable : MonoBehaviour, Interactable
         _questManager.TrySetFoundObject(this);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         _questManager = MultiServiceLocator.GetService<QuestManager>();
         _questManager.SubscribeFindable(this);
     }
 
+    private void OnEnable()
+    {
+        if (_questManager != null) _questManager.SubscribeFindable(this);
+    }
+
     private void OnDisable()
     {
-        _questManager.UnSubscribeFindable(this);
+        if (_questManager != null) _questManager.UnSubscribeFindable(this);
     }
 
     public void OnFound()

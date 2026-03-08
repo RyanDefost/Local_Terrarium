@@ -16,4 +16,3 @@ public class Dialogue : ScriptableObject
 {
     public List<DialogueContent> dialogueItems = new();
 }
-

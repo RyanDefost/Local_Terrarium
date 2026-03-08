@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [Serializable]
 struct QuestSettings
@@ -12,7 +11,6 @@ struct QuestSettings
     [Space]
     public List<GameObject> QuestSpawnables;
 }
-
 
 public class QuestManager : MonoBehaviour
 {
@@ -26,7 +24,7 @@ public class QuestManager : MonoBehaviour
     public Action OnStartQuest;
     public Action OnEndQuest;
 
-    private void OnEnable()
+    private void Awake()
     {
         MultiServiceLocator.Provide<QuestManager>(this);
 
@@ -39,8 +37,14 @@ public class QuestManager : MonoBehaviour
         if (_currentQuest.IsCompleted) NextQuest();
     }
 
-    public void SubscribeFindable(Findable findable) => _findables.Add(findable);
-    public void UnSubscribeFindable(Findable findable) => _findables.Remove(findable);
+    public void SubscribeFindable(Findable findable)
+    {
+        if (!_findables.Contains(findable)) _findables.Add(findable);
+    }
+    public void UnSubscribeFindable(Findable findable)
+    {
+        if (_findables.Contains(findable)) _findables.Remove(findable);
+    }
 
     public void NextQuest()
     {

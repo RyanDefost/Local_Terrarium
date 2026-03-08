@@ -8,6 +8,7 @@ public static class MultiServiceLocator
 {
     private static Dictionary<System.Type, object> services = new();
 
+
     // Checks if a service of type T exists and returns the reference to it.
     public static T GetService<T>()
     {
