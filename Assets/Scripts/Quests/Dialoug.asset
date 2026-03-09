@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dialoug
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: 
+  - Text: THIS IS THE FIRST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     type: 0
-  - Text: 
+  - Text: THE SECOND TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     type: 0
-  - Text: 
+  - Text: AND THE LAST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     type: 0

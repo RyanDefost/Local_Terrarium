@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Quest
   dialogue: {fileID: 11400000, guid: 468d1d27c46988d8ebebc185a5f21274, type: 2}
   QuestItem: {fileID: 0}
-  IsCompleted: 0
+  preQuests: []
+  HasPlaced: 0
   HasTalked: 0
   HasFoundItem: 0

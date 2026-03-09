@@ -10,6 +10,8 @@ public class Quest : ScriptableObject
     [Header("Input")]
     public Dialogue dialogue;
     public GameObject QuestItem;
+    [Space]
+    public List<Quest> preQuests;
 
     [Header("Flags")]
     [HideInInspector] public bool HasPlaced;

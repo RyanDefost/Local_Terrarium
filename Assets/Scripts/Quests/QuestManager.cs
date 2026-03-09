@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [Serializable]
@@ -18,8 +19,9 @@ public class QuestManager : MonoBehaviour
     private List<Findable> _findables = new();
     private List<GameObject> _currentQuestSpawnables;
     private GameObject _currentFindable;
-    private Quest _currentQuest;
     private int _questIndex = 0;
+
+    public Quest _currentQuest { get; private set; }
 
     public Action OnStartQuest;
     public Action OnEndQuest;
@@ -53,6 +55,20 @@ public class QuestManager : MonoBehaviour
         ExitQuest();
         ++_questIndex;
         EnterQuest();
+    }
+
+    public bool HasQuest(Quest quest)
+    {
+        foreach (var questSetting in _quests)
+        {
+            var otherQuest = questSetting.Quest;
+            if (quest == otherQuest)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void TrySetFoundObject(Findable findable)
