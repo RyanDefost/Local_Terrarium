@@ -17,6 +17,7 @@ public class InteractableTalker : MonoBehaviour, Interactable
 
     public void Interact()
     {
+        print("TEST");
         _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
     }
 

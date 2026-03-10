@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    [SerializeField] readonly KeyCode _interactionKey = KeyCode.Mouse0;
-    [SerializeField] readonly float _interactionDistance = 10f;
+    [SerializeField] KeyCode _interactionKey = KeyCode.Mouse0;
+    [SerializeField] float _interactionDistance = 10f;
     public bool CanInteract { get; set; }
     public bool IsInteracting { get; private set; }
 
@@ -24,6 +24,7 @@ public class Interactor : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out var hit, _interactionDistance))
         {
+            print(hit.collider.gameObject);
             Interactable interactable = hit.transform.GetComponent<Interactable>();
             interactable?.Interact();
         }

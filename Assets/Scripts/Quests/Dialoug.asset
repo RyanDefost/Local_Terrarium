@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialoug
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: THIS IS THE FIRST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - Text: I am so tired...................................
     type: 0
   - Text: THE SECOND TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     type: 0
