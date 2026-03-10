@@ -3064,7 +3064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   interactionMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!1 &1534717069
 GameObject:
   m_ObjectHideFlags: 0
