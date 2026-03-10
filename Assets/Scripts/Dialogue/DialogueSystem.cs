@@ -49,6 +49,8 @@ public class DialogueSystem : MonoBehaviour
         this._dialogueBox.SetActive(true);
         this._currentDialogue = dialogue;
         this.isActive = true;
+
+        NextText();
     }
 
     public void DeactivateDialogue()

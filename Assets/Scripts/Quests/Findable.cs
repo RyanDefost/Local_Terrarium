@@ -17,12 +17,12 @@ public class Findable : MonoBehaviour, Interactable
 
     private void OnEnable()
     {
-        if (_questManager != null) _questManager.SubscribeFindable(this);
+        _questManager?.SubscribeFindable(this);
     }
 
     private void OnDisable()
     {
-        if (_questManager != null) _questManager.UnSubscribeFindable(this);
+        _questManager?.UnSubscribeFindable(this);
     }
 
     public void OnFound()

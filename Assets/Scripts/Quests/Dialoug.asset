@@ -18,4 +18,6 @@ MonoBehaviour:
   - Text: THE SECOND TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     type: 0
   - Text: AND THE LAST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    type: 0
+    type: 1
+  - Text: AND THE LAST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    type: 1

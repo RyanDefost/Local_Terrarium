@@ -22,6 +22,7 @@ public class InteractableTalker : MonoBehaviour, Interactable
 
     private void Tester()
     {
+        _questManager.HasQuest(_connectedQuest);
     }
 
     //TEMP
@@ -30,6 +31,11 @@ public class InteractableTalker : MonoBehaviour, Interactable
         if (Input.GetKeyDown(KeyCode.P))
         {
             _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _dialogueSystem.DeactivateDialogue();
         }
     }
 }
