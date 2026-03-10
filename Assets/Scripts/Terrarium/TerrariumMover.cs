@@ -1,8 +1,4 @@
 using System.Collections;
-using System.Net;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,7 +47,6 @@ public class TerrariumMover : MonoBehaviour
 
         if (Physics.Raycast(rayPosition, out var hit, 10f, _manager.PropMask))
         {
-
             _currentObject.transform.position =
                 Vector3.Lerp(
                     _currentObject.transform.position,
@@ -75,8 +70,6 @@ public class TerrariumMover : MonoBehaviour
         if (prop.GetPlaceable())
         {
             StartCoroutine(MoveTo(_pointPosition, _manager.CurrentObject));
-            //_manager.CurrentObject.transform.position = _pointPosition;
-            _manager.ReleaseObject();
         }
     }
 
@@ -87,11 +80,12 @@ public class TerrariumMover : MonoBehaviour
         {
             //a + (b - a) * t;
             currentObject.transform.position = startPos + (EndPoint - startPos) * _fallCurve.Evaluate(_timeElapsed / _fallDuration);
-            //currentObject.transform.position = Vector3.Lerp(startPos, EndPoint, curve.Evaluate(timeElapsed / lerpDuration));
             _timeElapsed += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        currentObject.transform.position = EndPoint;
 
+        _manager.ReleaseObject();
         _timeElapsed = 0;
     }
 
