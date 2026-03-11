@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,8 +19,11 @@ public class TerrariumMover : MonoBehaviour
     [SerializeField] float _fallDuration = 0.1f;
     private float _timeElapsed;
 
+    private bool canMove { get; set; }
+
     private GameObject _currentObject;
     private GameObject _hoverProp;
+    private PropObject _currentPropObject;
     private Vector3 _pointPosition;
 
     private TerrariumManager _manager;
@@ -27,6 +31,7 @@ public class TerrariumMover : MonoBehaviour
     public void Init(TerrariumManager manager)
     {
         _manager = manager;
+        canMove = true;
     }
 
     public void UpdateMover()
@@ -34,7 +39,7 @@ public class TerrariumMover : MonoBehaviour
         DrawLine();
 
         _currentObject = _manager.CurrentObject;
-        if (_currentObject == null) return;
+        if (_currentObject == null || !canMove) return;
 
         TryMoveObject();
         TryPlacement();
@@ -61,14 +66,14 @@ public class TerrariumMover : MonoBehaviour
 
     private void TryPlacement()
     {
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
+        _currentPropObject = _hoverProp.transform.GetComponent<PropObject>();
+        if (_currentPropObject == null) return;
 
-        PropObject prop = _hoverProp.transform.GetComponent<PropObject>();
-
-        if (prop == null) return;
-
-        if (prop.GetPlaceable())
+        bool isPlaceable = _currentPropObject.GetPlaceable();
+        if (isPlaceable && Input.GetKeyDown(KeyCode.Space) && canMove)
         {
+            canMove = false;
+            print("MOVEINT");
             StartCoroutine(MoveTo(_pointPosition, _manager.CurrentObject));
         }
     }
@@ -87,6 +92,7 @@ public class TerrariumMover : MonoBehaviour
 
         _manager.ReleaseObject();
         _timeElapsed = 0;
+        canMove = true;
     }
 
     private Vector3 GetObjectPosition(Vector3 basePosition)
@@ -102,16 +108,18 @@ public class TerrariumMover : MonoBehaviour
 
     private void DrawLine()
     {
-        if (_manager.CurrentObject == null)
+        if (_manager.CurrentObject == null || _currentPropObject == null || canMove == false)
         {
             _lineRenderer.positionCount = 0;
             return;
         }
 
+        Color color = _currentPropObject.GetPlaceable() ? Color.green : Color.red;
+        _lineRenderer.SetColors(color, color);
+
         _lineRenderer.positionCount = 2;
 
         _lineRenderer.SetPosition(0, _pointPosition);
         _lineRenderer.SetPosition(1, _manager.CurrentObject.transform.position);
-
     }
 }
