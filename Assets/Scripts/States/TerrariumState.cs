@@ -4,20 +4,20 @@ public class TerrariumState : State
 {
     public override void OnEnterState()
     {
-        Cursor.lockState = CursorLockMode.Confined;
         _playerObject.GetComponent<TerrariumManager>().isActive = true;
-        _camera.enabled = true;
+
+        Camera.SetupCurrent(_camera);
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public override void OnExitState()
     {
         _playerObject.GetComponent<TerrariumManager>().isActive = false;
-        _camera.enabled = false;
     }
 
     public override void UpdateState()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             StateChanger.Instance.SetState("Move");
         }

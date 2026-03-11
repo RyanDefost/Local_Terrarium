@@ -4,15 +4,14 @@ public class MovementState : State
 {
     public override void OnEnterState()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
-        _camera.enabled = true;
         _playerObject.SetActive(true);
+        Camera.SetupCurrent(_camera);
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public override void OnExitState()
     {
-        _camera.enabled = false;
         _playerObject.SetActive(false);
     }
 
