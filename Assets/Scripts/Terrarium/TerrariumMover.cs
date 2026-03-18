@@ -73,7 +73,6 @@ public class TerrariumMover : MonoBehaviour
         if (isPlaceable && Input.GetKeyDown(KeyCode.Space) && canMove)
         {
             canMove = false;
-            print("MOVEINT");
             StartCoroutine(MoveTo(_pointPosition, _manager.CurrentObject));
         }
     }

@@ -7,7 +7,10 @@ public class TerrariumManager : MonoBehaviour
 {
     [Header("Input")]
     public GameObject CurrentObject;
-    public GameObject OtherObject;
+
+    public GameObject LastObject;
+    public GameObject SizedObject;
+
     public bool isActive = false;
 
     public Action OnPickup;
@@ -41,9 +44,9 @@ public class TerrariumManager : MonoBehaviour
     {
         if (!isActive) return;
 
-        if (Input.GetKeyDown(KeyCode.F)) //TEMP
+        if (Input.GetKeyDown(KeyCode.F) && LastObject != null) //TEMP
         {
-            SetPickup(OtherObject);
+            SetPickup(LastObject);
         }
 
         _terrariumMover.UpdateMover();
@@ -52,6 +55,7 @@ public class TerrariumManager : MonoBehaviour
 
     public void ReleaseObject()
     {
+        LastObject = CurrentObject;
         Onrelease?.Invoke();
         CurrentObject = null;
     }
@@ -60,5 +64,11 @@ public class TerrariumManager : MonoBehaviour
     {
         CurrentObject = pickup;
         OnPickup?.Invoke();
+    }
+
+    public void ToggleVisableObject(bool state)
+    {
+        if (SizedObject != null) SizedObject.GetComponent<MeshRenderer>().enabled = state;
+        if (CurrentObject != null) CurrentObject.GetComponent<MeshRenderer>().enabled = state;
     }
 }

@@ -44,11 +44,19 @@ public class TerrariumScaler : MonoBehaviour
     private void SetRelease()
     {
         _copiedObject.transform.localPosition = _manager.CurrentObject.transform.localPosition;
+        _manager.SizedObject = _copiedObject;
     }
 
     private void SetPickup()
     {
-        _copiedObject = Instantiate(_manager.CurrentObject, new Vector2(0, -100), _manager.CurrentObject.transform.rotation);
+        if (_manager.LastObject == _manager.CurrentObject)
+        {
+            _copiedObject = _manager.SizedObject;
+        }
+        else
+        {
+            _copiedObject = Instantiate(_manager.CurrentObject, new Vector2(0, -100), _manager.CurrentObject.transform.rotation);
+        }
         _copiedObject.transform.localScale = _manager.CurrentObject.transform.lossyScale * _scaleFactor;
     }
 }

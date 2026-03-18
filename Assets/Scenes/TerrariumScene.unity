@@ -3060,7 +3060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrariumScaler
   _scaledParent: {fileID: 1771549693}
-  _scaleFactor: 125
+  _scaleFactor: 75
 --- !u!114 &1908589001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,7 +3124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrariumManager
   CurrentObject: {fileID: 1860442127}
-  OtherObject: {fileID: 805447030}
+  LastObject: {fileID: 0}
+  SizedObject: {fileID: 0}
   isActive: 0
   PropMask:
     serializedVersion: 2
