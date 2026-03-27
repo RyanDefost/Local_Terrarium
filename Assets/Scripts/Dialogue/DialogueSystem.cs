@@ -14,7 +14,8 @@ public class DialogueSystem : MonoBehaviour
     private Dialogue _currentDialogue;
     private int _dialogueIndex = 0;
 
-    [SerializeField] private TextMeshProUGUI _TMPgui;
+    [SerializeField] private DialogueDeck _dialogueDeck;
+
     private float _speed = 0.1f;
 
     private QuestManager _questManager;
@@ -27,38 +28,36 @@ public class DialogueSystem : MonoBehaviour
         MultiServiceLocator.Provide<DialogueSystem>(this);
     }
 
-    private void OnEnable()
-    {
-        _TMPgui = _dialogueBox.GetComponent<TextMeshProUGUI>();
-    }
+    // private void Update()
+    // {
+    //     if (!this.isActive) return;
 
-    private void Update()
-    {
-        if (!this.isActive) return;
-
-        if (Input.GetKeyDown(_interactionKey))
-        {
-            NextText();
-        }
-    }
+    //     if (Input.GetKeyDown(_interactionKey))
+    //     {
+    //         ActivateDialogue(_currentDialogue);
+    //         _dialogueDeck.StartDialogue();
+    //     }
+    // }
 
     public void ActivateDialogue(Dialogue dialogue)
     {
         if (this._currentDialogue != null) DeactivateDialogue();
+        this.isActive = true;
 
         this._dialogueBox.SetActive(true);
         this._currentDialogue = dialogue;
-        this.isActive = true;
+        this._dialogueDeck.dialogue = _currentDialogue.dialogueItems;
+        this._dialogueDeck.StartDialogue();
+
 
         this.OnStartDialogue?.Invoke();
-        NextText();
+        //this._dialogueDeck.NextDialogue();
     }
 
     public void DeactivateDialogue()
     {
-        StopAllCoroutines();
+        this._dialogueDeck.StopAllCoroutines();
 
-        this._TMPgui.text = "";
         this._dialogueIndex = 0;
         this._currentDialogue = null;
 
@@ -76,10 +75,10 @@ public class DialogueSystem : MonoBehaviour
 
         if (_dialogueIndex < _currentDialogue.dialogueItems.Count)
         {
-            StopAllCoroutines();
-            this._TMPgui.text = "";
+            //StopAllCoroutines();
+            //this._TMPgui.text = "";
 
-            StartCoroutine(SetText(_currentDialogue.dialogueItems[_dialogueIndex].Text));
+            //StartCoroutine(SetText(_currentDialogue.dialogueItems[_dialogueIndex].Text));
             this._dialogueIndex++;
         }
         else
@@ -94,10 +93,10 @@ public class DialogueSystem : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             currentText += text[i];
-            this._TMPgui.text = currentText;
+            //this._TMPgui.text = currentText;
 
             yield return new WaitForSeconds(this._speed);
         }
-        this._TMPgui.text = text;
+        //this._TMPgui.text = text;
     }
 }

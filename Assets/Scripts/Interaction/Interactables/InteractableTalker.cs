@@ -32,11 +32,6 @@ public class InteractableTalker : MonoBehaviour, Interactable
     //TEMP
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
-        }
-
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _dialogueSystem.DeactivateDialogue();
