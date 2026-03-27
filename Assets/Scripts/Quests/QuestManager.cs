@@ -57,18 +57,10 @@ public class QuestManager : MonoBehaviour
         EnterQuest();
     }
 
-    public bool HasQuest(Quest quest)
+    public bool IsCurrentQuest(Quest quest)
     {
-        foreach (var questSetting in _quests)
-        {
-            var otherQuest = questSetting.Quest;
-            if (quest == otherQuest)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        if (_currentQuest == quest) return true;
+        else return false;
     }
 
     public void TrySetFoundObject(Findable findable)

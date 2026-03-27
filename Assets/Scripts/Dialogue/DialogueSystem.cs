@@ -50,6 +50,7 @@ public class DialogueSystem : MonoBehaviour
         this._currentDialogue = dialogue;
         this.isActive = true;
 
+        this.OnStartDialogue?.Invoke();
         NextText();
     }
 
@@ -63,6 +64,10 @@ public class DialogueSystem : MonoBehaviour
 
         this._dialogueBox.SetActive(false);
         this.isActive = false;
+
+        StateChanger.Instance.SetState("Move");
+
+        this.OnStopDialogue?.Invoke();
     }
 
     public void NextText()

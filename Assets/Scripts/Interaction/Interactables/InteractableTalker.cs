@@ -10,20 +10,23 @@ public class InteractableTalker : MonoBehaviour, Interactable
     {
         _questManager = MultiServiceLocator.GetService<QuestManager>();
         _dialogueSystem = MultiServiceLocator.GetService<DialogueSystem>();
-
-        _dialogueSystem.OnStopDialogue += Tester;
     }
-
 
     public void Interact()
     {
-        print("TEST");
+        _dialogueSystem.OnStopDialogue += OnStopDialogue;
         _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
+        StateChanger.Instance.SetState("Talk");
     }
 
-    private void Tester()
+    private void OnStopDialogue()
     {
-        _questManager.HasQuest(_connectedQuest);
+        _dialogueSystem.OnStopDialogue -= OnStopDialogue;
+        if (_questManager.IsCurrentQuest(_connectedQuest))
+        {
+            _questManager._currentQuest.HasTalked = true;
+        }
+
     }
 
     //TEMP

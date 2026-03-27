@@ -14,8 +14,8 @@ public class Quest : ScriptableObject
     public List<Quest> preQuests;
 
     [Header("Flags")]
-    [HideInInspector] public bool HasPlaced;
-    [HideInInspector] public bool HasTalked;
-    [HideInInspector] public bool HasFoundItem;
+    public bool HasPlaced;
+    public bool HasTalked;
+    public bool HasFoundItem;
     public bool IsCompleted => HasPlaced && HasTalked && HasPlaced;
 }
