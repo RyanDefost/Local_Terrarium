@@ -17,12 +17,14 @@ public class TaskList : MonoBehaviour
     private TextMeshProUGUI text;
 
     private QuestManager _questManager;
+    private Quest currentQuest;
 
     void Start()
     {
         text = TaskUI.GetComponentInChildren<TextMeshProUGUI>();
 
         _questManager = MultiServiceLocator.GetService<QuestManager>();
+        currentQuest = _questManager._currentQuest;
     }
 
     void Update()
@@ -43,10 +45,10 @@ public class TaskList : MonoBehaviour
 
     private void UpdateText()
     {
-        if (_questManager._currentQuest.IsCompleted) return;
+        if (currentQuest.IsCompleted) return;
 
-        if (_questManager._currentQuest.HasTalked) TalkText = altTalkText;
-        if (_questManager._currentQuest.HasFoundItem) findText = altFindText;
-        if (_questManager._currentQuest.HasPlaced) placeText = altPlaceText;
+        if (currentQuest.HasTalked) TalkText = altTalkText;
+        if (currentQuest.HasFoundItem) findText = altFindText;
+        if (currentQuest.HasPlaced) placeText = altPlaceText;
     }
 }
