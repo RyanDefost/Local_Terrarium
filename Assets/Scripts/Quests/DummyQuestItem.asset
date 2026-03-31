@@ -15,6 +15,6 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 468d1d27c46988d8ebebc185a5f21274, type: 2}
   QuestItem: {fileID: 0}
   preQuests: []
-  HasPlaced: 0
-  HasTalked: 0
-  HasFoundItem: 0
+  HasPlaced: 1
+  HasTalked: 1
+  HasFoundItem: 1

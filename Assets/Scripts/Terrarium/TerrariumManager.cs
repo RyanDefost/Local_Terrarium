@@ -31,7 +31,7 @@ public class TerrariumManager : MonoBehaviour
         _terrariumMover.Init(this);
         _terrariumScaler.Init(this);
 
-        SetPickup(CurrentObject); //TEMP, THERE ISNT ANY OUTSIDE CALLS YET.
+        //SetPickup(CurrentObject); //TEMP, THERE ISNT ANY OUTSIDE CALLS YET.
     }
 
     private void OnDisable()

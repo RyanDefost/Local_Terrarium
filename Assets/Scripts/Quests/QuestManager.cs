@@ -8,6 +8,7 @@ struct QuestSettings
 {
     public Quest Quest;
     public GameObject Findable;
+    public GameObject TerrariumItem;
 
     [Space]
     public List<GameObject> QuestSpawnables;
@@ -18,7 +19,9 @@ public class QuestManager : MonoBehaviour
     [SerializeField] List<QuestSettings> _quests = new();
     private List<Findable> _findables = new();
     private List<GameObject> _currentQuestSpawnables;
-    private GameObject _currentFindable;
+    public GameObject _currentFindable;
+    public GameObject _currentTerrariumItem;
+
     private int _questIndex = 0;
 
     public Quest _currentQuest { get; private set; }
@@ -26,12 +29,26 @@ public class QuestManager : MonoBehaviour
     public Action OnStartQuest;
     public Action OnEndQuest;
 
+    public Action OnLastQuest;
+
+    public Action OnHasTalked;
+    public Action OnPickupItem;
+    public Action OnHasPlaced;
+
+    [SerializeField] private TerrariumManager _terrariumManager;
+
+
     private void Awake()
     {
         MultiServiceLocator.Provide<QuestManager>(this);
 
         _questIndex = 0;
         EnterQuest();
+    }
+
+    public void SetTerrariumItem()
+    {
+        _terrariumManager.SetPickup(_currentTerrariumItem);
     }
 
     private void Update()
@@ -50,7 +67,11 @@ public class QuestManager : MonoBehaviour
 
     public void NextQuest()
     {
-        if (_questIndex == _quests.Count) return;
+        if (_questIndex >= _quests.Count)
+        {
+            Debug.Log("LAST QUEST HAS BEEN REACHED.");
+            return;
+        }
 
         ExitQuest();
         ++_questIndex;
@@ -67,7 +88,7 @@ public class QuestManager : MonoBehaviour
     {
         if (_currentQuest.HasFoundItem == true) return;
 
-        if (findable == _currentFindable)
+        if (findable.gameObject == _currentFindable.gameObject)
         {
             _currentQuest.HasFoundItem = true;
             findable.OnFound();
@@ -90,8 +111,13 @@ public class QuestManager : MonoBehaviour
     {
         OnStartQuest?.Invoke();
 
+        _quests[_questIndex].Quest.HasTalked = false;
+        _quests[_questIndex].Quest.HasFoundItem = false;
+        _quests[_questIndex].Quest.HasPlaced = false;
+
         _currentQuest = _quests[_questIndex].Quest;
         _currentFindable = _quests[_questIndex].Findable;
+        _currentTerrariumItem = _quests[_questIndex].TerrariumItem;
         _currentQuestSpawnables = _quests[_questIndex].QuestSpawnables;
 
         ToggleSpawnables(true);
@@ -103,5 +129,4 @@ public class QuestManager : MonoBehaviour
 
         ToggleSpawnables(false);
     }
-
 }

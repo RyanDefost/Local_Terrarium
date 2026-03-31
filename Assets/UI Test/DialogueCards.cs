@@ -136,7 +136,7 @@ public class DialogueDeck : MonoBehaviour
 
     public void NextDialogue()
     {
-        if (dialogueIndex >= dialogue.Count - 2)
+        if (dialogueIndex >= dialogue.Count - 1)
         {
             var _dialogueSystem = MultiServiceLocator.GetService<DialogueSystem>();
             _dialogueSystem.DeactivateDialogue();

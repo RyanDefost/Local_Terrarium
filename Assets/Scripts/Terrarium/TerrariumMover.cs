@@ -89,6 +89,9 @@ public class TerrariumMover : MonoBehaviour
         }
         currentObject.transform.position = EndPoint;
 
+        var questManager = MultiServiceLocator.GetService<QuestManager>();
+        questManager._currentQuest.HasPlaced = true;
+
         _manager.ReleaseObject();
         _timeElapsed = 0;
         canMove = true;

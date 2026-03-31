@@ -6,6 +6,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] float _interactionDistance = 10f;
     [SerializeField] KeyCode _interactionKey = KeyCode.Mouse0;
     [SerializeField] LayerMask interactionMask;
+
+    [SerializeField] Canvas canvasUI;
     public bool CanInteract { get; set; }
     public bool IsInteracting { get; private set; }
 
@@ -14,7 +16,19 @@ public class Interactor : MonoBehaviour
 
     private void Update()
     {
+        CheckHover();
         TryInteract();
+    }
+
+    private void CheckHover()
+    {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Physics.Raycast(ray, out var hit, _interactionDistance, interactionMask))
+        {
+            canvasUI.gameObject.SetActive(true);
+            return;
+        }
+        canvasUI.gameObject.SetActive(false);
     }
 
     private void TryInteract()

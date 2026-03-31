@@ -27,11 +27,16 @@ public class Findable : MonoBehaviour, Interactable
 
     public void OnFound()
     {
+        _questManager.SetTerrariumItem();
+        this.gameObject.SetActive(false);
+
+        Debug.Log(this.gameObject + " | " + _questManager._currentFindable);
         Debug.Log("Correct item found.");
     }
 
     public void OnWrongFound()
     {
+        Debug.Log(this.gameObject + " | " + _questManager._currentFindable);
         Debug.Log("Wrong item found.");
     }
 }

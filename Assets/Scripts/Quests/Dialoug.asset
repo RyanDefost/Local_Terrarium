@@ -13,11 +13,28 @@ MonoBehaviour:
   m_Name: Dialoug
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: I am so tired...................................
+  - Text: Hallo hallo
     type: 0
-  - Text: THE SECOND TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - Text: 'Ik zie dat er weer iemand is die het diorama onderhoudt. Dus er is ook
+      weer iemand waar ik
+
+      mijn problemen kan neerleggen.'
     type: 0
-  - Text: AND THE LAST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - Text: Volgens mij was ik vroeger hier bijna elke dag.
     type: 1
-  - Text: AND THE LAST TEXTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - Text: Maar maak je geen zorgen ik kan mezelf wel in houden,
+    type: 1
+  - Text: Maar maak je geen zorgen ik kan mezelf wel in houden,
+    type: 1
+  - Text: Voor nu
+    type: 1
+  - Text: Het probleem wat ik het is dat ik elke dag aan de wandel ben. Maar in de
+      zomer kom ik niet meer zo ver.
+    type: 1
+  - Text: Overal waar ik loop is de zon fel in mijn ogen, de warmte brandt op mijn
+      oude huid.
+    type: 1
+  - Text: Ik hoop dat je een beetje shadow voor mij kan regelen.
+    type: 1
+  - Text: Een plekje voor mij om even te kunnen zitten op de lange dagen
     type: 1
