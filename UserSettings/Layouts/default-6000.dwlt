@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 152
+  controlID: 154
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -862,9 +862,6 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -6910
-      - m_Data: -5940
-      - m_Data: -5140
       - m_Data: -1294
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1402,9 +1399,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 8.841334, y: 4.3445635, z: 0.6410044}
+    m_Target: {x: 24.785084, y: 11.86793, z: 75.09184}
     speed: 2
-    m_Value: {x: 8.841334, y: 4.3445635, z: 0.6410044}
+    m_Value: {x: 24.785084, y: 11.86793, z: 75.09184}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1450,13 +1447,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.09612426, y: 0.6789388, z: -0.09035679, w: 0.7222528}
+    m_Target: {x: 0.23625734, y: -0.4576044, z: 0.12752782, w: 0.8476691}
     speed: 2
-    m_Value: {x: 0.09612426, y: 0.6789388, z: -0.09035678, w: 0.7222527}
+    m_Value: {x: -0.23625734, y: 0.4576044, z: -0.12752782, w: -0.8476691}
   m_Size:
-    m_Target: 4.213133
+    m_Target: 26.316755
     speed: 2
-    m_Value: 4.213133
+    m_Value: 26.316755
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1558,12 +1555,12 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 24}
     m_SelectedIDs:
-    - m_Data: 46968
+    - m_Data: 47018
     m_LastClickedID:
-      m_Data: 46968
+      m_Data: 47018
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 46682
+    - m_Data: 46708
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1596,7 +1593,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 46682
+    - m_Data: 46708
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
