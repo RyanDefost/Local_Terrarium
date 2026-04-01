@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e5d2db4a971d835c8122e477db9562b, type: 3}
-  m_Name: OtherQuest
+  m_Name: TreeQuestItem
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  dialogue: {fileID: 11400000, guid: 4f995db08850ca5fb9e0686d52e369ee, type: 2}
+  dialogue: {fileID: 11400000, guid: 468d1d27c46988d8ebebc185a5f21274, type: 2}
   QuestItem: {fileID: 0}
   preQuests: []
-  HasPlaced: 0
-  HasTalked: 0
-  HasFoundItem: 0
+  HasPlaced: 1
+  HasTalked: 1
+  HasFoundItem: 1
