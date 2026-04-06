@@ -18,7 +18,8 @@ public class TerrariumState : State
 
     public override void UpdateState()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Tab)
+        || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
             var TerrariumManager = _playerObject.GetComponent<TerrariumManager>();
             if (TerrariumManager.CurrentObject != null)

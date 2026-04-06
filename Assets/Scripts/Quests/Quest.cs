@@ -9,6 +9,8 @@ public class Quest : ScriptableObject
 {
     [Header("Input")]
     public Dialogue dialogue;
+    public Dialogue finishDialogue;
+    [Space]
     public GameObject QuestItem;
     [Space]
     public List<Quest> preQuests;
@@ -17,5 +19,6 @@ public class Quest : ScriptableObject
     public bool HasPlaced;
     public bool HasTalked;
     public bool HasFoundItem;
-    public bool IsCompleted => HasPlaced && HasTalked && HasPlaced;
+    public bool HasQuestEnd;
+    public bool IsCompleted => HasPlaced && HasTalked && HasPlaced && HasQuestEnd;
 }

@@ -41,7 +41,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void ActivateDialogue(Dialogue dialogue)
     {
-        if (this._currentDialogue != null) DeactivateDialogue();
+        //if (this._currentDialogue != null) DeactivateDialogue();
         this.isActive = true;
 
         this._dialogueBox.SetActive(true);

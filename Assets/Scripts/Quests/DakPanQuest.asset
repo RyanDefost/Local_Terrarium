@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5d2db4a971d835c8122e477db9562b, type: 3}
   m_Name: DakPanQuest
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 11400000, guid: f2c18deed6b84b9bfba96fcd4c7d7f00, type: 2}
+  finishDialogue: {fileID: 11400000, guid: 003973742fa8733d8b19f0007932e892, type: 2}
   QuestItem: {fileID: 0}
   preQuests: []
   HasPlaced: 0
   HasTalked: 0
   HasFoundItem: 0
+  HasQuestEnd: 0

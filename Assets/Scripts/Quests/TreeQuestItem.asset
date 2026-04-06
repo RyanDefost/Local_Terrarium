@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: TreeQuestItem
   m_EditorClassIdentifier: Assembly-CSharp::Quest
   dialogue: {fileID: 11400000, guid: 468d1d27c46988d8ebebc185a5f21274, type: 2}
+  finishDialogue: {fileID: 11400000, guid: 003973742fa8733d8b19f0007932e892, type: 2}
   QuestItem: {fileID: 0}
   preQuests: []
   HasPlaced: 1
   HasTalked: 1
   HasFoundItem: 1
+  HasQuestEnd: 1

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 [Serializable]
@@ -23,6 +24,7 @@ public class QuestManager : MonoBehaviour
     public GameObject _currentTerrariumItem;
 
     private int _questIndex = 0;
+    private bool _isClosingQuest;
 
     public Quest _currentQuest { get; private set; }
 
@@ -36,6 +38,7 @@ public class QuestManager : MonoBehaviour
     public Action OnHasPlaced;
 
     [SerializeField] private TerrariumManager _terrariumManager;
+    [SerializeField] private QuestReseter _questRester;
 
 
     private void Awake()
@@ -53,7 +56,12 @@ public class QuestManager : MonoBehaviour
 
     private void Update()
     {
-        if (_currentQuest.IsCompleted) NextQuest();
+        if (_currentQuest.IsCompleted && !_isClosingQuest)
+        {
+            _isClosingQuest = true;
+            _questRester.PlayReset();
+            //Next quest is set on PlayReset
+        }
     }
 
     public void SubscribeFindable(Findable findable)
@@ -114,6 +122,7 @@ public class QuestManager : MonoBehaviour
         _quests[_questIndex].Quest.HasTalked = false;
         _quests[_questIndex].Quest.HasFoundItem = false;
         _quests[_questIndex].Quest.HasPlaced = false;
+        _quests[_questIndex].Quest.HasQuestEnd = false;
 
         _currentQuest = _quests[_questIndex].Quest;
         _currentFindable = _quests[_questIndex].Findable;

@@ -4,13 +4,9 @@ using UnityEngine;
 public class TaskList : MonoBehaviour
 {
     [SerializeField] string TalkText;
-    private string altTalkText = "[V] Talk to the visitor downstairs.";
-
     [SerializeField] string findText;
-    private string altFindText = "[V] Find requested object.";
-
     [SerializeField] string placeText;
-    private string altPlaceText = "[V] Place requested object on Terrarium.";
+    [SerializeField] string endText;
 
     [Space]
     [SerializeField] Canvas TaskUI;
@@ -19,36 +15,35 @@ public class TaskList : MonoBehaviour
     private QuestManager _questManager;
     private Quest currentQuest;
 
+    //
+    bool hasTalked = false;
+    bool hasFound = false;
+    bool hasPlaced = false;
+
     void Start()
     {
         text = TaskUI.GetComponentInChildren<TextMeshProUGUI>();
 
         _questManager = MultiServiceLocator.GetService<QuestManager>();
+        _questManager.OnStartQuest += SetCurrentQuestText;
+
+        SetCurrentQuestText();
+    }
+
+    private void SetCurrentQuestText()
+    {
+        text.text = TalkText;
         currentQuest = _questManager._currentQuest;
+
+        hasTalked = false;
+        hasPlaced = false;
+        hasFound = false;
     }
 
-    void Update()
+    private void Update()
     {
-        UpdateText();
-        SetText();
-    }
-
-    private void SetText()
-    {
-        text.text = (
-          "TODO:" + "\n" +
-           TalkText + "\n"
-         + findText + "\n"
-         + placeText
-        );
-    }
-
-    private void UpdateText()
-    {
-        if (currentQuest.IsCompleted) return;
-
-        if (currentQuest.HasTalked) TalkText = altTalkText;
-        if (currentQuest.HasFoundItem) findText = altFindText;
-        if (currentQuest.HasPlaced) placeText = altPlaceText;
+        if (currentQuest.HasTalked) text.text = findText;
+        if (currentQuest.HasFoundItem) text.text = placeText;
+        if (currentQuest.HasPlaced) text.text = endText;
     }
 }

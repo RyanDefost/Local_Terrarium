@@ -28,7 +28,6 @@ public class IntroStarter : MonoBehaviour
 
         _dialogueSystem = MultiServiceLocator.GetService<DialogueSystem>();
 
-
         //--
         StateChanger.Instance.SetState("Talk");
 
@@ -41,6 +40,7 @@ public class IntroStarter : MonoBehaviour
         _dialogueSystem.OnStopDialogue -= StartFade;
         StartCoroutine(FadeOut(_fadePannel));
     }
+
     IEnumerator FadeOut(Image image)
     {
         float elapsedTime = 0.0f;

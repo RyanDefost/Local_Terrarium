@@ -1455,6 +1455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: zoutelande_map
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bb5bbad3f928d148ba7c8541861dcc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

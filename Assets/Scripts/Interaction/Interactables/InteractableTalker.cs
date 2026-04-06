@@ -15,7 +15,11 @@ public class InteractableTalker : MonoBehaviour, Interactable
     public void Interact()
     {
         _dialogueSystem.OnStopDialogue += OnStopDialogue;
-        _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
+        if (_questManager._currentQuest.HasPlaced)
+            _dialogueSystem.ActivateDialogue(_connectedQuest.finishDialogue);
+        else
+            _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
+
         StateChanger.Instance.SetState("Talk");
     }
 
@@ -27,6 +31,11 @@ public class InteractableTalker : MonoBehaviour, Interactable
             _questManager._currentQuest.HasTalked = true;
         }
 
+        if (_questManager.IsCurrentQuest(_connectedQuest) && _questManager._currentQuest.HasPlaced == true)
+        {
+            _questManager._currentQuest.HasTalked = true;
+            _questManager._currentQuest.HasQuestEnd = true;
+        }
     }
 
     //TEMP
