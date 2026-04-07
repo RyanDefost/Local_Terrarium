@@ -6444,7 +6444,7 @@ MonoBehaviour:
   - Quest: {fileID: 11400000, guid: bf6873155f5425271911bb488bde1395, type: 2}
     Findable: {fileID: 1459931231}
     TerrariumItem:
-    - {fileID: 1005049729}
+    - {fileID: 1111436979}
     QuestSpawnables:
     - {fileID: 1473992287}
     - {fileID: 65509582}
