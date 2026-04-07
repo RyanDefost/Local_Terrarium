@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,7 +8,7 @@ using UnityEngine;
 public class TerrariumManager : MonoBehaviour
 {
     [Header("Input")]
-    public GameObject CurrentObject;
+    public List<GameObject> CurrentObject = new();
 
     public GameObject LastObject;
     public GameObject SizedObject;
@@ -44,31 +46,38 @@ public class TerrariumManager : MonoBehaviour
     {
         if (!isActive) return;
 
-        if (Input.GetKeyDown(KeyCode.F) && LastObject != null) //TEMP
-        {
-            SetPickup(LastObject);
-        }
-
         _terrariumMover.UpdateMover();
         _terrariumScaler.UpdateScaler();
     }
 
     public void ReleaseObject()
     {
-        LastObject = CurrentObject;
+        LastObject = CurrentObject.First();
         Onrelease?.Invoke();
-        CurrentObject = null;
+        CurrentObject.Remove(LastObject);
     }
 
+    public void SetPickup(List<GameObject> pickup)
+    {
+        CurrentObject.AddRange(pickup);
+        OnPickup?.Invoke();
+    }
     public void SetPickup(GameObject pickup)
     {
-        CurrentObject = pickup;
+        CurrentObject.Add(pickup);
         OnPickup?.Invoke();
+    }
+
+    public void ClearHoldBuffer()
+    {
+        CurrentObject.First().transform.localPosition = Vector3.down;
+        CurrentObject.Clear();
+        isActive = false;
     }
 
     public void ToggleVisableObject(bool state)
     {
         if (SizedObject != null) SizedObject.GetComponent<MeshRenderer>().enabled = state;
-        if (CurrentObject != null) CurrentObject.GetComponent<MeshRenderer>().enabled = state;
+        if (CurrentObject.Count > 0) CurrentObject.First().GetComponent<MeshRenderer>().enabled = state;
     }
 }

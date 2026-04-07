@@ -22,8 +22,8 @@ public class TerrariumState : State
         || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
             var TerrariumManager = _playerObject.GetComponent<TerrariumManager>();
-            if (TerrariumManager.CurrentObject != null)
-                TerrariumManager.ToggleVisableObject(false);
+            // if (TerrariumManager.CurrentObject.Count < 0)
+            //     TerrariumManager.ToggleVisableObject(false);
 
             StateChanger.Instance.SetState("Move");
         }

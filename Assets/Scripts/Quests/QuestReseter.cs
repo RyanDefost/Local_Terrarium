@@ -23,7 +23,6 @@ public class QuestReseter : MonoBehaviour
         _questManager = MultiServiceLocator.GetService<QuestManager>();
         //--
         StateChanger.Instance.SetState("Talk");
-        Debug.Log("TEST<><>");
         StartCoroutine(FadeIn(_fadePannel));
     }
 

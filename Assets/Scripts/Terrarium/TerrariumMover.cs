@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,7 +39,10 @@ public class TerrariumMover : MonoBehaviour
     {
         DrawLine();
 
-        _currentObject = _manager.CurrentObject;
+        if (_manager.CurrentObject.Count > 0)
+            _currentObject = _manager.CurrentObject.First();
+        else _currentObject = null;
+
         if (_currentObject == null || !canMove) return;
 
         TryMoveObject();
@@ -70,10 +74,13 @@ public class TerrariumMover : MonoBehaviour
         if (_currentPropObject == null) return;
 
         bool isPlaceable = _currentPropObject.GetPlaceable();
-        if (isPlaceable && Input.GetKeyDown(KeyCode.Space) && canMove)
+        if (isPlaceable && canMove)
         {
-            canMove = false;
-            StartCoroutine(MoveTo(_pointPosition, _manager.CurrentObject));
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                canMove = false;
+                StartCoroutine(MoveTo(_pointPosition, _manager.CurrentObject.First()));
+            }
         }
     }
 
@@ -93,6 +100,9 @@ public class TerrariumMover : MonoBehaviour
         questManager._currentQuest.HasPlaced = true;
 
         _manager.ReleaseObject();
+        if (_manager.CurrentObject.Count > 0)
+            _manager.OnPickup?.Invoke();
+
         _timeElapsed = 0;
         canMove = true;
     }
@@ -122,6 +132,12 @@ public class TerrariumMover : MonoBehaviour
         _lineRenderer.positionCount = 2;
 
         _lineRenderer.SetPosition(0, _pointPosition);
-        _lineRenderer.SetPosition(1, _manager.CurrentObject.transform.position);
+        if (_manager.CurrentObject.Count <= 0)
+        {
+            _lineRenderer.SetPosition(1, Vector3.down);
+            return;
+        }
+
+        _lineRenderer.SetPosition(1, _manager.CurrentObject.First().transform.position);
     }
 }

@@ -32,6 +32,7 @@ public class TaskList : MonoBehaviour
 
     private void SetCurrentQuestText()
     {
+        Debug.Log("SETTINGTEXT");
         text.text = TalkText;
         currentQuest = _questManager._currentQuest;
 

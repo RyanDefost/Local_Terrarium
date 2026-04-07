@@ -9,7 +9,7 @@ struct QuestSettings
 {
     public Quest Quest;
     public GameObject Findable;
-    public GameObject TerrariumItem;
+    public List<GameObject> TerrariumItem;
 
     [Space]
     public List<GameObject> QuestSpawnables;
@@ -21,7 +21,7 @@ public class QuestManager : MonoBehaviour
     private List<Findable> _findables = new();
     private List<GameObject> _currentQuestSpawnables;
     public GameObject _currentFindable;
-    public GameObject _currentTerrariumItem;
+    public List<GameObject> _currentTerrariumItem;
 
     private int _questIndex = 0;
     private bool _isClosingQuest;
@@ -59,8 +59,14 @@ public class QuestManager : MonoBehaviour
         if (_currentQuest.IsCompleted && !_isClosingQuest)
         {
             _isClosingQuest = true;
+            _terrariumManager.ClearHoldBuffer();
+
             _questRester.PlayReset();
             //Next quest is set on PlayReset
+        }
+        if (_currentQuest.IsCompleted == false)
+        {
+            _isClosingQuest = false;
         }
     }
 
@@ -117,7 +123,6 @@ public class QuestManager : MonoBehaviour
 
     private void EnterQuest()
     {
-        OnStartQuest?.Invoke();
 
         _quests[_questIndex].Quest.HasTalked = false;
         _quests[_questIndex].Quest.HasFoundItem = false;
@@ -130,6 +135,7 @@ public class QuestManager : MonoBehaviour
         _currentQuestSpawnables = _quests[_questIndex].QuestSpawnables;
 
         ToggleSpawnables(true);
+        OnStartQuest?.Invoke();
     }
 
     private void ExitQuest()

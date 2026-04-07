@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a214d187a1326338750c285f4da248, type: 3}
   m_Name: DakpanDialogue
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  dialogueItems: []
+  dialogueItems:
+  - Text: Testing
+    type: 0
