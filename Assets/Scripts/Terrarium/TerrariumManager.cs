@@ -70,7 +70,7 @@ public class TerrariumManager : MonoBehaviour
 
     public void ClearHoldBuffer()
     {
-        CurrentObject.First().transform.localPosition = Vector3.down;
+        if (CurrentObject.Count > 0) CurrentObject.First().transform.localPosition = Vector3.down;
         CurrentObject.Clear();
         isActive = false;
     }

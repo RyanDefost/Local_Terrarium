@@ -1,10 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestReseter : MonoBehaviour
 {
     [SerializeField] private Dialogue _introText;
+    [Space]
+    [SerializeField] private Dialogue _endingText;
+    [SerializeField] private Camera _endingCamera;
+    [SerializeField] private Canvas _endingCanvas;
+
+    [Space]
     [SerializeField] private Canvas _startCanvas;
     [SerializeField] private GameObject _player;
     [SerializeField] private Vector3 _playerSpawn;
@@ -13,6 +20,26 @@ public class QuestReseter : MonoBehaviour
     private DialogueSystem _dialogueSystem;
     private QuestManager _questManager;
     private float fadeTime = 2;
+
+    public void EndQuest()
+    {
+
+        //StartCoroutine(FadeBackOut(_fadePannel));
+
+        StateChanger.Instance.SetState("End");
+        _dialogueSystem.ActivateDialogue(_endingText);
+
+        //Camera.SetupCurrent(_endingCamera);
+        //Cursor.lockState = CursorLockMode.Confined;
+
+        _endingCanvas.gameObject.SetActive(true);
+    }
+
+    public void ResetGame()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
 
     public void PlayReset()
     {
@@ -23,10 +50,10 @@ public class QuestReseter : MonoBehaviour
         _questManager = MultiServiceLocator.GetService<QuestManager>();
         //--
         StateChanger.Instance.SetState("Talk");
-        StartCoroutine(FadeIn(_fadePannel));
+        StartCoroutine(FadeOut(_fadePannel));
     }
 
-    IEnumerator FadeIn(Image image)
+    IEnumerator FadeOut(Image image)
     {
         float elapsedTime = 0.0f;
         Color c = image.color;
@@ -45,10 +72,23 @@ public class QuestReseter : MonoBehaviour
 
         //
         yield return new WaitForSeconds(1f);
-        StartCoroutine(FadeOut(image));
+        StartCoroutine(FadeBackIn(image));
     }
 
-    IEnumerator FadeOut(Image image)
+    IEnumerator FadeBackOut(Image image)
+    {
+        float elapsedTime = 0.0f;
+        Color c = image.color;
+        while (elapsedTime < fadeTime)
+        {
+            yield return new WaitForSeconds(0.01f);
+            elapsedTime += Time.deltaTime;
+            c.a = 0.0f + Mathf.Clamp01(elapsedTime / fadeTime);
+            image.color = c;
+        }
+    }
+
+    IEnumerator FadeBackIn(Image image)
     {
         float elapsedTime = 0.0f;
         Color c = image.color;

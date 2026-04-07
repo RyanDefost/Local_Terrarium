@@ -81,14 +81,16 @@ public class QuestManager : MonoBehaviour
 
     public void NextQuest()
     {
+        ExitQuest();
+        ++_questIndex;
+
         if (_questIndex >= _quests.Count)
         {
             Debug.Log("LAST QUEST HAS BEEN REACHED.");
+            _questRester.EndQuest();
             return;
         }
 
-        ExitQuest();
-        ++_questIndex;
         EnterQuest();
     }
 

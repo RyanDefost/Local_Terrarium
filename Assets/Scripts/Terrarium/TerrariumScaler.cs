@@ -40,7 +40,7 @@ public class TerrariumScaler : MonoBehaviour
     private void SetScaledPosition()
     {
         _copiedObject.transform.SetParent(_scaledParent.transform);
-        _copiedObject.transform.localPosition = _manager.CurrentObject.First().transform.localPosition;
+        if (_manager.CurrentObject.Count > 0) _copiedObject.transform.localPosition = _manager.CurrentObject.First().transform.localPosition;
     }
 
     private void SetRelease()
