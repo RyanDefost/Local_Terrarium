@@ -26,11 +26,16 @@ public class QuestReseter : MonoBehaviour
 
         //StartCoroutine(FadeBackOut(_fadePannel));
 
-        StateChanger.Instance.SetState("End");
         _dialogueSystem.ActivateDialogue(_endingText);
-
+        _dialogueSystem.OnStopDialogue += SetEnd;
         //Camera.SetupCurrent(_endingCamera);
         //Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void SetEnd()
+    {
+        _dialogueSystem.OnStopDialogue -= SetEnd;
+        StateChanger.Instance.SetState("End");
 
         _endingCanvas.gameObject.SetActive(true);
     }
