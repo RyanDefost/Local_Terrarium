@@ -6904,6 +6904,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   _quests:
+  - Quest: {fileID: 11400000, guid: bf6873155f5425271911bb488bde1395, type: 2}
+    Findable: {fileID: 1459931231}
+    TerrariumItem:
+    - {fileID: 1111436979}
+    QuestSpawnables:
+    - {fileID: 1473992287}
+    - {fileID: 65509582}
+    - {fileID: 1459931231}
   - Quest: {fileID: 11400000, guid: af0797e1dd22d058bbf5fe2512a77bae, type: 2}
     Findable: {fileID: 65509582}
     TerrariumItem:
@@ -6912,14 +6920,6 @@ MonoBehaviour:
     - {fileID: 1128027960}
     QuestSpawnables:
     - {fileID: 1518632558}
-    - {fileID: 65509582}
-    - {fileID: 1459931231}
-  - Quest: {fileID: 11400000, guid: bf6873155f5425271911bb488bde1395, type: 2}
-    Findable: {fileID: 1459931231}
-    TerrariumItem:
-    - {fileID: 1111436979}
-    QuestSpawnables:
-    - {fileID: 1473992287}
     - {fileID: 65509582}
     - {fileID: 1459931231}
   _currentFindable: {fileID: 0}
