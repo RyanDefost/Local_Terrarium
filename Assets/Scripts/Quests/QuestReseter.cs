@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -71,6 +72,8 @@ public class QuestReseter : MonoBehaviour
         }
 
         _player.transform.localPosition = _playerSpawn;
+        _player.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
         yield return new WaitForSeconds(1f);
         _dialogueSystem.ActivateDialogue(_introText);
         _questManager.NextQuest();
