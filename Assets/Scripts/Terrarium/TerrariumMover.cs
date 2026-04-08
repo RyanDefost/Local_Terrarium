@@ -118,6 +118,7 @@ public class TerrariumMover : MonoBehaviour
         return position;
     }
 
+    [Obsolete]
     private void DrawLine()
     {
         if (_manager.CurrentObject == null || _currentPropObject == null || canMove == false)

@@ -426,17 +426,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: RESTART
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6d89c544e131828458c7364a935919dd, type: 2}
+  m_sharedMaterial: {fileID: 5786680537478320074, guid: 6d89c544e131828458c7364a935919dd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4280229663
+  m_fontColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -453,8 +453,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 71.8
+  m_fontSizeBase: 71.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1272,7 +1272,7 @@ Transform:
   m_GameObject: {fileID: 338670591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004659917, y: 0.0051302677, z: 0.004569972}
+  m_LocalPosition: {x: -0.004659917, y: 0.0051302677, z: 0.0036299832}
   m_LocalScale: {x: 0.001080141, y: 0.0016111434, z: 0.00643439}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1650,7 +1650,7 @@ Transform:
   m_GameObject: {fileID: 494691332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004659917, y: -0.00462969, z: 0.004569972}
+  m_LocalPosition: {x: -0.004659917, y: -0.00462969, z: 0.0036299832}
   m_LocalScale: {x: 0.001080141, y: 0.0016111434, z: 0.00643439}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2247,7 +2247,7 @@ Transform:
   m_GameObject: {fileID: 615425814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00456, y: 0.0051302677, z: 0.004569972}
+  m_LocalPosition: {x: 0.00456, y: 0.0051302677, z: 0.0036299832}
   m_LocalScale: {x: 0.001080141, y: 0.0016111434, z: 0.00643439}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3324,11 +3324,11 @@ RectTransform:
   - {fileID: 102855959}
   m_Father: {fileID: 856324492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.0000059604645, y: -10.000061}
+  m_SizeDelta: {x: 600, y: 200}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &991541090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 37b32c35f71f1974cbffc2a3edc1f618, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3453,7 +3453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 174edccd95a2f2a42869852f88326900, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0064
+      value: 0.00546
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 174edccd95a2f2a42869852f88326900, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5819,15 +5819,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a04c8b089d0ecc6458278d065b34337c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.106100775
+      value: 0.055458877
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a04c8b089d0ecc6458278d065b34337c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1061008
+      value: 0.05545889
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a04c8b089d0ecc6458278d065b34337c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1061008
+      value: 0.05545889
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a04c8b089d0ecc6458278d065b34337c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5869,6 +5869,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: a04c8b089d0ecc6458278d065b34337c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6140042677033249474, guid: c1904a96c8dff1b4c832790ef1a37203, type: 3}
     - target: {fileID: 919132149155446097, guid: a04c8b089d0ecc6458278d065b34337c, type: 3}
       propertyPath: m_Name
       value: boom1 (P) (1)
@@ -6942,10 +6946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07640dff63ba27b4c8fc0fb7a341cdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskList
-  TalkText: '- Talk to the visitor downstairs.'
-  findText: '- Find requested object.'
-  placeText: '- Place requested object on Terrarium.'
-  endText: '- Talk to the visitor again.'
+  TalkText: '- Praat met de bezoeker'
+  findText: '- Zoek naar gevraagde object'
+  placeText: '- Plaats object in schaalmodel.'
+  endText: '- Praat opnieuw met de bezoeker'
   TaskUI: {fileID: 1101434358}
 --- !u!114 &1550346580
 MonoBehaviour:
@@ -7453,7 +7457,7 @@ Transform:
   m_GameObject: {fileID: 1872837338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0045600124, y: -0.00462969, z: 0.004569972}
+  m_LocalPosition: {x: 0.0045600124, y: -0.00462969, z: 0.0036299832}
   m_LocalScale: {x: 0.0010801413, y: 0.0016111432, z: 0.0064343903}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7810,7 +7814,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  - {fileID: 2100000, guid: dfab38290f576e24aa5ee5c5b83d0f1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

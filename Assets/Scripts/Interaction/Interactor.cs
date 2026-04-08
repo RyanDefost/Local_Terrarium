@@ -43,7 +43,7 @@ public class Interactor : MonoBehaviour
         IsInteracting = CanInteract && Input.GetKey(_interactionKey);
         if (!IsInteracting) return;
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = Camera.current.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out var hit, _interactionDistance, interactionMask))
         {
             print(hit.collider.gameObject);
