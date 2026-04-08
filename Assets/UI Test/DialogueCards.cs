@@ -14,6 +14,8 @@ public class DialogueDeck : MonoBehaviour
     public CanvasGroup frontCanvas;
     public CanvasGroup backCanvas;
 
+    private AudioSource audioSource;
+
     public float moveTime = 0.45f;
     public float arcHeight = 140f;
 
@@ -103,6 +105,11 @@ public class DialogueDeck : MonoBehaviour
 
     bool isAnimating = false;
 
+    private void Awake()
+    {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
+    }
+
     public void StartDialogue()
     {
         dialogueIndex = 0;
@@ -131,6 +138,7 @@ public class DialogueDeck : MonoBehaviour
         {
             if (isAnimating) return;
             NextDialogue();
+            audioSource.Play();
         }
     }
 

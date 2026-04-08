@@ -5,11 +5,13 @@ public class InteractableTalker : MonoBehaviour, Interactable
     [SerializeField] Quest _connectedQuest;
     private DialogueSystem _dialogueSystem;
     private QuestManager _questManager;
+    private AudioSource _audioSource;
 
     private void Start()
     {
         _questManager = MultiServiceLocator.GetService<QuestManager>();
         _dialogueSystem = MultiServiceLocator.GetService<DialogueSystem>();
+        _audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     public void Interact()
@@ -21,6 +23,7 @@ public class InteractableTalker : MonoBehaviour, Interactable
             _dialogueSystem.ActivateDialogue(_connectedQuest.dialogue);
 
         StateChanger.Instance.SetState("Talk");
+        _audioSource.Play();
     }
 
     private void OnStopDialogue()
