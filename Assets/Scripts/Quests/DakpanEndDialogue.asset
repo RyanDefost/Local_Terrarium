@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9a214d187a1326338750c285f4da248, type: 3}
-  m_Name: TreeEndDialoug
+  m_Name: DakpanEndDialogue
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: Ik was weer bezig met mijn loopje en ik zag dat er nu overal bomen staan.
+  - Text: Kijk eens aan, ik kan weer naar huis! Ik weet nooit hoe je opa dit deed,
+      maar jij hebt het onder de knie!
     type: 0
-  - Text: Nu kan ik lekker in de shadow zit om me rust te nemen tijdens mijn wandeling.
+  - Text: Super bedankt en we spreken elkaar nog wel!
     type: 0
