@@ -4,16 +4,18 @@ public class TerrariumState : State
 {
     public override void OnEnterState()
     {
-        _playerObject.GetComponent<TerrariumManager>().isActive = true;
-        _playerObject.GetComponent<TerrariumManager>().ToggleVisableObject(true);
-
+        _camera.enabled = true;
         Camera.SetupCurrent(_camera);
         Cursor.lockState = CursorLockMode.Confined;
+
+        StartCoroutine(_playerObject.GetComponent<TerrariumManager>().ToggleTerrarium(true, 0.5f));
+        _playerObject.GetComponent<TerrariumManager>().ToggleVisableObject(true);
     }
 
     public override void OnExitState()
     {
-        _playerObject.GetComponent<TerrariumManager>().isActive = false;
+        StartCoroutine(_playerObject.GetComponent<TerrariumManager>().ToggleTerrarium(false, 0.5f));
+        _camera.enabled = false;
     }
 
     public override void UpdateState()

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -48,6 +49,12 @@ public class TerrariumManager : MonoBehaviour
 
         _terrariumMover.UpdateMover();
         _terrariumScaler.UpdateScaler();
+    }
+
+    public IEnumerator ToggleTerrarium(bool activeState, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        isActive = activeState;
     }
 
     public void ReleaseObject()

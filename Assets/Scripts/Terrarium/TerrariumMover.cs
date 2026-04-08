@@ -134,7 +134,7 @@ public class TerrariumMover : MonoBehaviour
         _lineRenderer.SetPosition(0, _pointPosition);
         if (_manager.CurrentObject.Count <= 0)
         {
-            _lineRenderer.SetPosition(1, Vector3.down);
+            _lineRenderer.SetPosition(1, _pointPosition);
             return;
         }
 

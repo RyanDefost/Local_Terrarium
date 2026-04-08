@@ -1,10 +1,12 @@
+using ElmanGameDevTools.PlayerSystem;
 using UnityEngine;
 
 public class MovementState : State
 {
     public override void OnEnterState()
     {
-        _playerObject.SetActive(true);
+        _playerObject.GetComponentInChildren<PlayerController>().enabled = true;
+        _camera.enabled = true;
         Camera.SetupCurrent(_camera);
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -12,7 +14,8 @@ public class MovementState : State
 
     public override void OnExitState()
     {
-        _playerObject.SetActive(false);
+        _camera.enabled = false;
+        _playerObject.GetComponentInChildren<PlayerController>().enabled = false;
     }
 
     public override void UpdateState()
