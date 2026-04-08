@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: IntroText
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: Hey was that the doorbell?
+  - Text: '"hmmm.." '
     type: 0
-  - Text: I should go check downstairs.
+  - Text: '[Na het overleiden van je opa, heb jij de verantwoordelijkheid voor mijn
+      vuurtoren overgenomen.]'
+    type: 0
+  - Text: '[Een grote verantwoordelijkheid.]'
+    type: 0
+  - Text: "[Ook heb jij een schaalmodel van het dorp ge\xEBrfd.]"
+    type: 0
+  - Text: '[Een gelieft project van je opa; zei dat het veel mensen heeft geholden,
+      wat dat ook mag betekenen.]'
+    type: 0
+  - Text: '"Hoorde ik net de deurbel? beter om even te kijken wie er is."'
     type: 0

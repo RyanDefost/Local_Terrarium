@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: BetweenDialogue
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: Huh I blacked out
+  - Text: Altijd weer fijn om de buurtjes te kunnen helpen.
     type: 0
-  - Text: Time to help another person
+  - Text: het dorp ziet er ieder dag een stukje beter uit.
+    type: 0
+  - Text: ooh!
+    type: 0
+  - Text: Ik hoorde weer iemand aan de deur, zal maar gaan kijken wie het is.
     type: 0

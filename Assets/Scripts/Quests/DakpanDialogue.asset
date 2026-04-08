@@ -13,5 +13,17 @@ MonoBehaviour:
   m_Name: DakpanDialogue
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: Testing
+  - Text: 'Oh hallo. Ik ben Jobse. je buur.
+
+      Ik was goeie vrienden met je opa
+      toen hij hier nog woonde.'
+    type: 0
+  - Text: 'Toen jouw opa hier woonde kon die de problemen op onze kleine delta vaak
+      genoeg oplossen. Dus ik kom hier eigenlijk met een simpele vraag:'
+    type: 0
+  - Text: "Je hebt het vast al vanuit je vuurtoren kunnen zien, maar mijn dak is
+      weggewaaid! \nHeb jij iets op jouw zolder om mij weer te kunnen voorzien van
+      een dak?"
+    type: 0
+  - Text: Ik wacht hier wel even, Ik heb nu toch nog niks te zoeken thuis, haha!
     type: 0
