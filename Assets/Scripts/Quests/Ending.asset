@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Ending
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueItems:
-  - Text: Ending!!
+  - Text: '"hmmm.."'
+    type: 0
+  - Text: '"De vuurtoren komt toch met meer verantwoordelijkheden dan verwacht..."'
+    type: 0
+  - Text: '"Toch ben ik blij dat ik de buurtjes heb kunnen helpen."'
+    type: 0
+  - Text: '"Ik vraag me af wie ik nogmeer zou kunnen helpen..."'
     type: 0
