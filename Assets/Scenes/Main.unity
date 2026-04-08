@@ -1272,7 +1272,7 @@ Transform:
   m_GameObject: {fileID: 338670591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004659917, y: 0.0051302677, z: 0.0036299832}
+  m_LocalPosition: {x: -0.004659917, y: 0.0051302677, z: 0.0010699874}
   m_LocalScale: {x: 0.001080141, y: 0.0016111434, z: 0.00643439}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1650,7 +1650,7 @@ Transform:
   m_GameObject: {fileID: 494691332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004659917, y: -0.00462969, z: 0.0036299832}
+  m_LocalPosition: {x: -0.004659917, y: -0.00462969, z: 0.0010699874}
   m_LocalScale: {x: 0.001080141, y: 0.0016111434, z: 0.00643439}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2247,7 +2247,7 @@ Transform:
   m_GameObject: {fileID: 615425814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00456, y: 0.0051302677, z: 0.0036299832}
+  m_LocalPosition: {x: 0.00456, y: 0.0051302677, z: 0.0010699874}
   m_LocalScale: {x: 0.001080141, y: 0.0016111434, z: 0.00643439}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3453,7 +3453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 174edccd95a2f2a42869852f88326900, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00546
+      value: 0.0029
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 174edccd95a2f2a42869852f88326900, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3543,7 +3543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecef0fe4210648fbf81d2efd57927486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
-  _interactionDistance: 3
+  _interactionDistance: 3.5
   _interactionKey: 323
   interactionMask:
     serializedVersion: 2
@@ -3865,7 +3865,7 @@ AudioSource:
   Priority: 63
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 9
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -7457,7 +7457,7 @@ Transform:
   m_GameObject: {fileID: 1872837338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0045600124, y: -0.00462969, z: 0.0036299832}
+  m_LocalPosition: {x: 0.0045600124, y: -0.00462969, z: 0.0010699874}
   m_LocalScale: {x: 0.0010801413, y: 0.0016111432, z: 0.0064343903}
   m_ConstrainProportionsScale: 0
   m_Children: []

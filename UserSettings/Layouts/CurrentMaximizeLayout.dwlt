@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 1102
+  controlID: 5592
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -96,7 +96,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 1
+    m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -110,18 +110,18 @@ MonoBehaviour:
       y: 21
       width: 1151
       height: 818
-    m_Scale: {x: 0.616927, y: 0.616927}
-    m_Translation: {x: 584.92, y: 409}
+    m_Scale: {x: 0.59947914, y: 0.59947914}
+    m_Translation: {x: 575.5, y: 408.99997}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -948.1186
-      y: -662.9633
-      width: 1865.6987
-      height: 1325.9266
+      x: -960.00006
+      y: -682.2589
+      width: 1920.0001
+      height: 1364.5178
     m_MinimalGUI: 1
   m_defaultScale: 0.59947914
   m_LastWindowPixelSize: {x: 1151, y: 839}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 1103
+  controlID: 5593
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1076
+  controlID: 5594
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -250,11 +250,13 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_Data: 45356
+      m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
+      - m_Data: -34962
+      - m_Data: -34694
+      - m_Data: -33274
       - m_Data: -20898
       - m_Data: -20882
       - m_Data: -15204
@@ -270,10 +272,15 @@ MonoBehaviour:
       - m_Data: 62894
       - m_Data: 68800
       - m_Data: 69012
+      - m_Data: 78840
+      - m_Data: 78934
+      - m_Data: 79024
+      - m_Data: 79284
+      - m_Data: 79708
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: EventSystem
-        m_OriginalName: EventSystem
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -281,10 +288,10 @@ MonoBehaviour:
           width: 0
           height: 0
         m_UserData:
-          m_Data: 62978
+          m_Data: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 5}
@@ -835,9 +842,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -31.058678, y: 6.1247616, z: 21.6975}
+    m_Target: {x: -24.453398, y: 6.4876213, z: 17.774805}
     speed: 2
-    m_Value: {x: -31.058678, y: 6.1247616, z: 21.6975}
+    m_Value: {x: -24.453398, y: 6.4876213, z: 17.774805}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -883,9 +890,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08961276, y: -0.89696676, z: 0.19836473, w: 0.3856775}
+    m_Target: {x: 0.09583919, y: -0.5687495, z: 0.06205, w: 0.81496274}
     speed: 2
-    m_Value: {x: 0.0895825, y: -0.89666396, z: 0.19829777, w: 0.38554728}
+    m_Value: {x: 0.09580682, y: -0.5685574, z: 0.062029045, w: 0.8146875}
   m_Size:
     m_Target: 0.21275403
     speed: 2
@@ -1051,7 +1058,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1104
+  controlID: 5745
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -1129,7 +1136,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TextMesh Pro/Resources/Fonts & Materials
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1139,27 +1146,25 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/TextMesh Pro/Resources/Fonts & Materials
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/rdf/Unity/projects/Local_Terrarium
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 521}
+    scrollPos: {x: 0, y: 79}
     m_SelectedIDs:
-    - m_Data: 74756
+    - m_Data: 48994
     m_LastClickedID:
-      m_Data: 74756
+      m_Data: 48994
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 48994
     - m_Data: 48996
     - m_Data: 48998
     - m_Data: 49000
-    - m_Data: 49218
     - m_Data: 49222
-    - m_Data: 49262
     - m_Data: 74758
     - m_Data: 1000000000
     - m_Data: 2147483647
@@ -1228,8 +1233,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 63290
-    m_LastClickedInstanceID: 63290
+    - m_Data: 79422
+    m_LastClickedInstanceID: 79422
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 61792
@@ -1388,8 +1393,8 @@ MonoBehaviour:
     y: 0
     width: 580
     height: 1270
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -1440,8 +1445,8 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 63290
-  m_LastVerticalScrollValue: 550
+  m_LastInspectedObjectInstanceID: 79422
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
