@@ -12,8 +12,8 @@ public class IntroStarter : MonoBehaviour
     private Image _fadePannel;
 
     private DialogueSystem _dialogueSystem;
-
     private float fadeTime = 2;
+
 
     private void Start()
     {

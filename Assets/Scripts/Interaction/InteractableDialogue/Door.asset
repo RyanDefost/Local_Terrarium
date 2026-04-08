@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a214d187a1326338750c285f4da248, type: 3}
+  m_Name: Door
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueItems:
+  - Text: '[Deur is niet op slot, verklaard hoe de buren binnen komen.]'
+    type: 0
+  - Text: '[Het is een prachtige dag vandaag, maar er is nog genoeg te doen.]'
+    type: 0

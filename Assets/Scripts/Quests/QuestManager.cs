@@ -38,11 +38,13 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField] private TerrariumManager _terrariumManager;
     [SerializeField] private QuestReseter _questRester;
+    private AudioSource _audioSource;
 
 
     private void Awake()
     {
         MultiServiceLocator.Provide<QuestManager>(this);
+        _audioSource = this.gameObject.GetComponent<AudioSource>();
 
         _questIndex = 0;
         EnterQuest();
@@ -138,6 +140,8 @@ public class QuestManager : MonoBehaviour
 
         ToggleSpawnables(true);
         OnStartQuest?.Invoke();
+
+        _audioSource.Play();
     }
 
     private void ExitQuest()
