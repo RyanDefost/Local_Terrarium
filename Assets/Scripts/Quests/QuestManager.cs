@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 [Serializable]
@@ -87,6 +86,7 @@ public class QuestManager : MonoBehaviour
         if (_questIndex >= _quests.Count)
         {
             Debug.Log("LAST QUEST HAS BEEN REACHED.");
+            _questRester.StopAllCoroutines();
             _questRester.EndQuest();
             return;
         }
