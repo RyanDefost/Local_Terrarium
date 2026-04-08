@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 
@@ -18,7 +19,8 @@ public class TerrariumScaler : MonoBehaviour
         _manager.Onrelease += SetRelease;
         _manager.OnPickup += SetPickup;
 
-        _currentObject = _manager.CurrentObject;
+        if (_manager.CurrentObject.Count > 0)
+            _currentObject = _manager.CurrentObject.First();
     }
 
     private void OnDisable()
@@ -38,25 +40,18 @@ public class TerrariumScaler : MonoBehaviour
     private void SetScaledPosition()
     {
         _copiedObject.transform.SetParent(_scaledParent.transform);
-        _copiedObject.transform.localPosition = _manager.CurrentObject.transform.localPosition;
+        if (_manager.CurrentObject.Count > 0) _copiedObject.transform.localPosition = _manager.CurrentObject.First().transform.localPosition;
     }
 
     private void SetRelease()
     {
-        _copiedObject.transform.localPosition = _manager.CurrentObject.transform.localPosition;
+        _copiedObject.transform.localPosition = _manager.CurrentObject.First().transform.localPosition;
         _manager.SizedObject = _copiedObject;
     }
 
     private void SetPickup()
     {
-        if (_manager.LastObject == _manager.CurrentObject)
-        {
-            _copiedObject = _manager.SizedObject;
-        }
-        else
-        {
-            _copiedObject = Instantiate(_manager.CurrentObject, new Vector2(0, -100), _manager.CurrentObject.transform.rotation);
-        }
-        _copiedObject.transform.localScale = _manager.CurrentObject.transform.lossyScale * _scaleFactor;
+        _copiedObject = Instantiate(_manager.CurrentObject.First(), new Vector2(0, -100), _manager.CurrentObject.First().transform.rotation);
+        _copiedObject.transform.localScale = _manager.CurrentObject.First().transform.lossyScale * _scaleFactor;
     }
 }

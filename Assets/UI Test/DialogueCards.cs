@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DialogueDeck : MonoBehaviour
 {
@@ -13,87 +14,89 @@ public class DialogueDeck : MonoBehaviour
     public CanvasGroup frontCanvas;
     public CanvasGroup backCanvas;
 
+    private AudioSource audioSource;
+
     public float moveTime = 0.45f;
     public float arcHeight = 140f;
 
-    string[] dialogue =
-    {
-           "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy",
-    "Goop is goop",
-    "dont let the goop consume you",
-    "Gooperdy goop",
-    "thy shall not be gooped",
-    "goopy yoopy"
-};
+    public List<DialogueContent> dialogue;
+    /*    {
+               "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy",
+        "Goop is goop",
+        "dont let the goop consume you",
+        "Gooperdy goop",
+        "thy shall not be gooped",
+        "goopy yoopy"
+    };*/
 
     int dialogueIndex = 0;
 
@@ -102,8 +105,14 @@ public class DialogueDeck : MonoBehaviour
 
     bool isAnimating = false;
 
-    void Start()
+    private void Awake()
     {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
+    }
+
+    public void StartDialogue()
+    {
+        dialogueIndex = 0;
         frontPos = frontCard.anchoredPosition;
         backPos = backCard.anchoredPosition;
 
@@ -115,10 +124,10 @@ public class DialogueDeck : MonoBehaviour
         frontCanvas.alpha = 1f;
         backCanvas.alpha = 0.4f;
 
-        frontText.text = dialogue[0];
+        frontText.text = dialogue[0].Text;
 
-        if (dialogue.Length > 1)
-            backText.text = dialogue[1];
+        if (dialogue.Count > 1)
+            backText.text = dialogue[1].Text;
 
         backText.color = new Color(0, 0, 0, 0);
     }
@@ -129,12 +138,19 @@ public class DialogueDeck : MonoBehaviour
         {
             if (isAnimating) return;
             NextDialogue();
+            audioSource.Play();
         }
     }
 
     public void NextDialogue()
     {
-        if (dialogueIndex >= dialogue.Length - 1) return;
+        if (dialogueIndex >= dialogue.Count - 1)
+        {
+            var _dialogueSystem = MultiServiceLocator.GetService<DialogueSystem>();
+            _dialogueSystem.DeactivateDialogue();
+
+            return;
+        }
 
         dialogueIndex++;
         StartCoroutine(CardAnimation());
@@ -199,11 +215,11 @@ public class DialogueDeck : MonoBehaviour
         frontCard.rotation = Quaternion.identity;
         backCard.rotation = Quaternion.Euler(0, 0, 4f);
 
-        frontText.text = dialogue[dialogueIndex];
+        frontText.text = dialogue[dialogueIndex].Text;
 
-        if (dialogueIndex + 1 < dialogue.Length)
+        if (dialogueIndex + 1 < dialogue.Count)
         {
-            backText.text = dialogue[dialogueIndex + 1];
+            backText.text = dialogue[dialogueIndex + 1].Text;
         }
 
         backText.color = new Color(0, 0, 0, 0);
